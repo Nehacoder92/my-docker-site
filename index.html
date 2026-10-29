@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>AgrixAI - Pest & Disease</title>
+<link rel="stylesheet" href="/static/style.css">
+</head>
+<body>
+
+<div class="nav">
+  <div class="logo">🌿 Agrix<span>AI</span></div>
+  <div class="menu">
+    <span>Dashboard</span><span>Crop Management</span><span>Crop Report</span><span>Equipments</span>
+    <span class="active">Pest &amp; Disease</span>
+  </div>
+  <div class="user"><div class="avatar">👩‍🌾</div><div>Farm User<small>Farm Manager</small></div></div>
+</div>
+
+<div class="title">
+  <h1>Pest &amp; Disease</h1>
+  <p id="today"></p>
+</div>
+
+<div class="grid">
+
+  <!-- LEFT -->
+  <div class="col">
+    <div class="glass">
+      <h3>Health Status</h3><div class="sub">Leaf health after analysis</div>
+      <div class="gauge-wrap">
+        <div class="gauge" id="gauge"><div><b id="hscore">--</b><span id="hlabel">Waiting</span></div></div>
+      </div>
+      <div class="tags" id="tags"></div>
+      <div class="legend">
+        <span><i class="dot" style="background:#b6f23a"></i>Healthy</span>
+        <span><i class="dot" style="background:#ffc94d"></i>Moderate</span>
+        <span><i class="dot" style="background:#ff5a50"></i>Unhealthy</span>
+      </div>
+    </div>
+    <div class="glass tip"><h3>🧬 Why did it happen?</h3><p id="cause">Upload a leaf to see the cause.</p></div>
+    <div class="glass tip"><h3>💊 How to cure</h3><p id="treatment">Treatment will appear here.</p></div>
+    <div class="glass tip"><h3>🛡 Prevention</h3><p id="prevention">Prevention tips will appear here.</p></div>
+  </div>
+
+  <!-- CENTER -->
+  <div class="col center">
+    <div class="glass upload">
+      <h3>Upload Leaf Image</h3>
+      <form id="form">
+        <input type="file" id="file" accept="image/*" required><br>
+        <button type="submit">Analyze Leaf</button>
+      </form>
+    </div>
+    <div class="glass leaf-stage" id="stage">
+      <div><div class="emoji">🍃</div><p class="sub">Leaf image and Grad-CAM explanation will appear here</p></div>
+    </div>
+  </div>
+
+  <!-- RIGHT -->
+  <div class="col">
+    <div class="glass">
+      <h3>Scan Overview</h3><div class="sub">AI based analysis</div>
+      <div class="row"><div><small>Scan ID</small><span id="scanid">--</span></div></div>
+      <div class="row"><div><small>Scan Date</small><span id="scandate">--</span></div></div>
+      <div class="row"><div><small>Disease</small><span id="disease">--</span></div></div>
+      <div class="row"><div><small>Confidence</small><span id="conf">--</span></div></div>
+    </div>
+    <div class="glass">
+      <h3>Severity</h3><div class="sub">Estimated from Grad-CAM</div>
+      <div class="big" id="sevlevel">--</div>
+      <div class="sub" id="sevpct">Affected area: --</div>
+    </div>
+  </div>
+
+</div>
+
+<div class="footer">Built with FastAPI • TensorFlow • Explainable AI (Grad-CAM)</div>
+
+<script src="/static/script.js"></script>
+</body>
+</html>
